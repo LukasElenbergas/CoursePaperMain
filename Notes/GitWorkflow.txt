@@ -1,0 +1,18 @@
+CREATING A NEW EMPTY BRANCH:
+git switch --orphan <branch name>
+git commit --allow-empty -m "Initial commit"
+git add/commit (other new stuff)*
+git push -u origin <branch name>
+
+IN DOCKER BEFORE BUILDING:
+git checkout <branch name>
+git rm -rf Build<type>/
+git commit -m "Deletion of old build"
+git push
+git checkout main -f
+
+AFTER BUILDING:
+git checkout <branch name>
+git add <build folder>
+git commit -m "<type> Build Artifacts - $DATE"
+git push

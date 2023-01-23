@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  linux:
+    image: unity_linux
+    tty: true               # equivalent for -t
+    stdin_open: true        # equivalent for -i
+  macos:
+    image: unity_macos
+    tty: true               # equivalent for -t
+    stdin_open: true        # equivalent for -i
+  windows:
+    image: unity_windows
+    tty: true               # equivalent for -t
+    stdin_open: true        # equivalent for -i

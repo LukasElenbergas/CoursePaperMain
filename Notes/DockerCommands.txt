@@ -1,0 +1,43 @@
+docker run -it --rm -v "$PWD:$PWD" -w "$PWD" DOCKER_CONTAINER_NAME bash
+> Runs the build container
+> Container is deleted after exit
+> Opens a terminal (due to bash) within the container
+> Container opens the current directory you are in due to '-v "$PWD:$PWD" -w "$PWD"'
+
+docker ps
+> Shows active containers
+
+docker images
+> Shows docker images on the system
+
+docker build -t NAME_AND_TAG .
+> Builds a docker container out of an image
+> -t is used to name and tag the container
+> Last part should be directory of the dockerfile (. means it is in the current dir)
+
+docker image rm NAME_AND_TAG
+> Deletes the specified image
+
+docker image/container rm -f $(docker image/container ls -q/aq)
+> For deleting all docker images/ containers
+> Container deletion includes stopped containers with -a flag
+
+docker system prune
+> Routine cleanup of unused data
+
+docker builder prune -a
+> Cleanup of unused build cache
+
+docker-compose up -d
+> Runs the images in the background
+
+docker-compose up - d && docker-compose rm -fsv
+> Starts the docker compose up
+> After it exits, removes the containers:
+    --force , -f      Don't ask to confirm removal
+    --stop , -s       Stop the containers, if required, before removing
+    --volumes , -v    Remove any anonymous volumes attached to containers
+    > Container removal may be useful when rebuilding the images anew
+
+watch -n <num> -d docker ps -a
+> Watch change in docker containers real time
